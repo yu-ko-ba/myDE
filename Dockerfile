@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV user_name yu-ko-ba
+ENV user_name Yu
 ENV user_home /home/${user_name}
 ENV user_shell /usr/bin/fish
 
@@ -20,10 +20,11 @@ USER ${user_name}
 WORKDIR ${user_home}
 
 RUN mkdir ${user_home}/myCommands
+RUN mkdir ${user_home}/work
 RUN git clone https://github.com/yu-ko-ba/dotfiles.git
 WORKDIR ${user_home}/dotfiles
 RUN bash deploy.sh
 RUN nvim -c UpdateRemotePlugins -c q
 
-WORKDIR ${user_home}
+WORKDIR ${user_home}/work
 CMD ["/usr/bin/fish"]
