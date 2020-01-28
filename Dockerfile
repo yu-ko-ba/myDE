@@ -23,6 +23,7 @@ RUN mkdir ${user_home}/myCommands
 RUN git clone https://github.com/yu-ko-ba/dotfiles.git
 WORKDIR ${user_home}/dotfiles
 RUN bash deploy.sh
+RUN nvim -c UpdateRemotePlugins -c q
 
 WORKDIR ${user_home}
 CMD ["/usr/bin/fish"]
