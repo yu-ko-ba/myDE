@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV user_name Yu
+ENV user_name myde
 ENV user_home /home/${user_name}
 ENV user_shell /usr/bin/fish
 
