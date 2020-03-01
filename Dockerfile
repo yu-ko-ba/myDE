@@ -5,7 +5,8 @@ ENV user_home /home/${user_name}
 ENV user_shell /usr/bin/fish
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y less vim python3 fish git software-properties-common sudo language-pack-ja zip curl shellcheck gcc golint tidy flake8 clang
+RUN apt-get install -y less vim python3 fish git software-properties-common sudo language-pack-ja zip curl shellcheck gcc golint tidy flake8 clang python3-pip
+RUN pip3 install -U neovim msgpack
 RUN add-apt-repository ppa:neovim-ppa/stable -y
 RUN apt-get update -y
 RUN apt-get install neovim -y
