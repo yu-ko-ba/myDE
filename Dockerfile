@@ -33,4 +33,4 @@ RUN bash deploy.sh
 RUN nvim -c UpdateRemotePlugins -c q
 
 WORKDIR ${user_home}/work
-CMD ["/usr/bin/fish"]
+CMD ["/usr/bin/nvim"]
