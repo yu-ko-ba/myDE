@@ -9,7 +9,7 @@ RUN export container_name="myDE"
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y less vim python3 fish git software-properties-common sudo language-pack-ja zip curl shellcheck gcc golint tidy flake8 clang python3-pip python3-venv
 RUN pip3 install -U neovim msgpack pynvim jedi
-RUN add-apt-repository ppa:neovim-ppa/stable -y
+RUN add-apt-repository ppa:neovim-ppa/unstable -y
 RUN apt-get update -y
 RUN apt-get install neovim -y
 
@@ -34,18 +34,8 @@ RUN git clone https://github.com/yu-ko-ba/dotfiles.git
 WORKDIR ${user_home}/dotfiles
 RUN bash deploy.sh
 
-RUN nvim -c "PlugInstall" -c "q" -c "q"
-# RUN nvim hoge.py -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.sh -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.java -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.kt -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.c -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.go -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim Dockerfile -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.json -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.vim -c "LspInstallServer!" -c "q" -c "q"
-# RUN nvim hoge.js -c "LspInstallServer!" -c "q" -c "q"
-RUN nvim -c UpdateRemotePlugins -c q
+RUN nvim +PlugInstall +qa
+RUN nvim -c "UpdateRemotePlugins" -c "qa"
 
 WORKDIR ${user_home}/work
 CMD ["/usr/bin/nvim"]
