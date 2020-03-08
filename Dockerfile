@@ -9,7 +9,7 @@ RUN export container_name="myDE"
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y less vim python3 fish git software-properties-common sudo language-pack-ja zip curl shellcheck gcc golint tidy flake8 clang python3-pip python3-venv npm clang-tools-8
 RUN python3 -m pip install -U pip
-RUN pip3 install -U neovim msgpack pynvim jedi python-language-server
+RUN pip3 install -U neovim msgpack pynvim python-language-server
 RUN add-apt-repository ppa:neovim-ppa/unstable -y
 RUN apt-get update -y
 RUN apt-get install neovim -y
